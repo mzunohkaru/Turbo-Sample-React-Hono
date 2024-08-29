@@ -5,6 +5,7 @@ import { prettyJSON } from "hono/pretty-json";
 import { serve } from "@hono/node-server";
 
 import prisma from "@repo/database";
+import { UserResponse } from "@repo/schema";
 
 const app = new Hono().basePath("/api");
 
@@ -16,7 +17,7 @@ app.notFound((c) => c.text("404 Not found"));
 app.get("/", (c) => c.text("Hello, Hono!"));
 
 app.get("/users", async (c) => {
-  const users = await prisma.user.findMany();
+  const users: UserResponse[] = await prisma.user.findMany();
   return c.json(users);
 });
 
