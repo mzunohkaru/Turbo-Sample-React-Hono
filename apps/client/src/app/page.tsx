@@ -7,14 +7,8 @@ import { useUser } from "@/hook/useUser";
 import { usePost } from "@/hook/usePost";
 
 export default function Home() {
-  const {
-    userData,
-    fetchUser,
-    isMutating,
-    error,
-    createUserData,
-    createUser,
-  } = useUser();
+  const { userData, fetchUser, isMutating, error, createUserData, createUser } =
+    useUser();
   const handleFetchUser = () => {
     fetchUser();
     console.log("userData", userData);

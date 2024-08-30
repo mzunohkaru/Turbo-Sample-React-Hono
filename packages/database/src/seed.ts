@@ -20,4 +20,3 @@ Seed()
   .finally(async () => {
     await prisma.$disconnect();
   });
-  

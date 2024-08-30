@@ -22,7 +22,7 @@ export async function fetcherStatus<T, U = never>(
   method: Method,
   data: T,
   params?: U,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ): Promise<number> {
   try {
     const requestConfig = {
@@ -47,7 +47,7 @@ export async function fetcherStatus<T, U = never>(
 export async function getFetcher<T, U = never>(
   url: string,
   params?: U,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
     method: "GET",
@@ -61,7 +61,7 @@ export async function getFetcher<T, U = never>(
 export async function postFetcher<T, U>(
   url: string,
   data: U,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
     method: "POST",
@@ -74,7 +74,7 @@ export async function postFetcher<T, U>(
 export async function putFetcher<T, U = never>(
   url: string,
   data?: U,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
     method: "PUT",
@@ -86,7 +86,7 @@ export async function putFetcher<T, U = never>(
 
 export async function deleteFetcher<T>(
   url: string,
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
     method: "DELETE",

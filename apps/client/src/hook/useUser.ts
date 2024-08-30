@@ -55,7 +55,7 @@ export function useUser() {
       onError(err, key, config) {
         console.log("error", err);
       },
-    }
+    },
   );
 
   return {
