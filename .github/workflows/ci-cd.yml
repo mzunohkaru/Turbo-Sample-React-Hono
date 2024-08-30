@@ -41,6 +41,9 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Run Format
         run: pnpm run format
 
@@ -59,6 +62,9 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Run ESLint
         run: pnpm run lint
 
@@ -76,6 +82,9 @@ jobs:
 
       - name: Install pnpm
         run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build packages
         run: pnpm run build
