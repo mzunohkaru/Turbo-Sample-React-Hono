@@ -5,7 +5,7 @@ import { prettyJSON } from "hono/pretty-json";
 import { serve } from "@hono/node-server";
 
 import prisma from "@repo/database";
-import { UserResponse } from "@repo/schema";
+import { UserResponse, PostResponse } from "@repo/schema";
 
 const app = new Hono().basePath("/api");
 
@@ -19,6 +19,23 @@ app.get("/", (c) => c.text("Hello, Hono!"));
 app.get("/users", async (c) => {
   const users: UserResponse[] = await prisma.user.findMany();
   return c.json(users);
+});
+
+app.post("/users", async (c) => {
+  const body = await c.req.json();
+  const user: UserResponse = await prisma.user.create({
+    data: body,
+  });
+  return c.json(user);
+});
+
+app.get("/posts", async (c) => {
+  const posts: PostResponse = {
+    id: "1",
+    title: "Hello, Hono!",
+    content: "This is a test post.",
+  };
+  return c.json(posts);
 });
 
 app.onError((err, c) => {
