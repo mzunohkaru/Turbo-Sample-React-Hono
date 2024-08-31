@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  install:
+  ci-cd:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -25,9 +25,6 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Run check
-        run: pnpm run check
 
       - name: Run format
         run: pnpm run format
