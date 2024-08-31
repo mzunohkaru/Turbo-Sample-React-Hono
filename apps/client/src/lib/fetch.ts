@@ -2,20 +2,20 @@ import axios, {
   type Method,
   type AxiosRequestConfig,
   type AxiosResponse,
-} from "axios";
+} from 'axios'
 
 const makeRequest = async <T>(config: AxiosRequestConfig): Promise<T> => {
   try {
     const response: AxiosResponse<T> = await axios({
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
       ...config,
-    });
-    return response.data;
+    })
+    return response.data
   } catch (error) {
-    console.error(error);
-    throw error;
+    console.error(error)
+    throw error
   }
-};
+}
 
 export async function fetcherStatus<T, U = never>(
   url: string,
@@ -32,15 +32,15 @@ export async function fetcherStatus<T, U = never>(
       paramsSerializer: { indexes: null },
       url,
       ...config,
-    };
+    }
     const response: AxiosResponse = await axios({
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
       ...requestConfig,
-    });
-    return response.status;
+    })
+    return response.status
   } catch (error) {
-    console.error(error);
-    throw error;
+    console.error(error)
+    throw error
   }
 }
 
@@ -50,12 +50,12 @@ export async function getFetcher<T, U = never>(
   config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
-    method: "GET",
+    method: 'GET',
     params,
     paramsSerializer: { indexes: null },
     url,
     ...config,
-  });
+  })
 }
 
 export async function postFetcher<T, U>(
@@ -64,11 +64,11 @@ export async function postFetcher<T, U>(
   config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
-    method: "POST",
+    method: 'POST',
     data,
     url,
     ...config,
-  });
+  })
 }
 
 export async function putFetcher<T, U = never>(
@@ -77,11 +77,11 @@ export async function putFetcher<T, U = never>(
   config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
-    method: "PUT",
+    method: 'PUT',
     data,
     url,
     ...config,
-  });
+  })
 }
 
 export async function deleteFetcher<T>(
@@ -89,8 +89,8 @@ export async function deleteFetcher<T>(
   config?: AxiosRequestConfig,
 ): Promise<T> {
   return await makeRequest<T>({
-    method: "DELETE",
+    method: 'DELETE',
     url,
     ...config,
-  });
+  })
 }
