@@ -18,6 +18,9 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "format": {
+      "dependsOn": ["^format"]
+    },
     "dev": {
       "inputs": [
         ".env*"
