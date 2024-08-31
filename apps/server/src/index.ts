@@ -1,27 +1,27 @@
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import { logger } from 'hono/logger';
-import { prettyJSON } from 'hono/pretty-json';
-import { serve } from '@hono/node-server';
+import { Hono } from "hono";
+import { cors } from "hono/cors";
+import { logger } from "hono/logger";
+import { prettyJSON } from "hono/pretty-json";
+import { serve } from "@hono/node-server";
 
-import prisma from '@repo/database';
-import { UserResponse, PostResponse } from '@repo/schema';
+import prisma from "@repo/database";
+import { UserResponse, PostResponse } from "@repo/schema";
 
-const app = new Hono().basePath('/api');
+const app = new Hono().basePath("/api");
 
 app.use(cors());
 app.use(logger());
 app.use(prettyJSON());
-app.notFound((c) => c.text('404 Not found'));
+app.notFound((c) => c.text("404 Not found"));
 
-app.get('/', (c) => c.text('Hello, Hono!'));
+app.get("/", (c) => c.text("Hello, Hono!"));
 
-app.get('/users', async (c) => {
+app.get("/users", async (c) => {
   const users: UserResponse[] = await prisma.user.findMany();
   return c.json(users);
 });
 
-app.post('/users', async (c) => {
+app.post("/users", async (c) => {
   const body = await c.req.json();
   const user: UserResponse = await prisma.user.create({
     data: body,
@@ -29,11 +29,11 @@ app.post('/users', async (c) => {
   return c.json(user);
 });
 
-app.get('/posts', async (c) => {
+app.get("/posts", async (c) => {
   const posts: PostResponse = {
-    id: '1',
-    title: 'Hello, Hono!',
-    content: 'This is a test post.',
+    id: "1",
+    title: "Hello, Hono!",
+    content: "This is a test post.",
   };
   return c.json(posts);
 });
