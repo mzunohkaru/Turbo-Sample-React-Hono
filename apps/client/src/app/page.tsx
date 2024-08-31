@@ -1,26 +1,26 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { Button } from "@repo/ui/button";
-import styles from "./page.module.css";
-import { useUser } from "@/hook/useUser";
-import { usePost } from "@/hook/usePost";
+import Image from 'next/image'
+import { Button } from '@repo/ui/button'
+import styles from './page.module.css'
+import { useUser } from '@/hook/useUser'
+import { usePost } from '@/hook/usePost'
 
 export default function Home() {
   const { userData, fetchUser, isMutating, error, createUserData, createUser } =
-    useUser();
+    useUser()
   const handleFetchUser = () => {
-    fetchUser();
-    console.log("userData", userData);
-  };
+    fetchUser()
+    console.log('userData', userData)
+  }
 
   const handleCreateUser = () => {
-    createUser();
-    console.log("createUserData", createUserData);
-  };
+    createUser()
+    console.log('createUserData', createUserData)
+  }
 
-  const { postData } = usePost();
-  console.log("postData", postData);
+  const { postData } = usePost()
+  console.log('postData', postData)
 
   return (
     <div className={styles.page}>
@@ -39,5 +39,5 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  );
+  )
 }

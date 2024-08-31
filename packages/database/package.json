@@ -15,11 +15,15 @@
     "db:deploy": "pnpm dlx prisma migrate deploy",
     "db:push": "pnpm dlx prisma db push",
     "db:seed": "ts-node src/seed.ts",
-    "format": "prisma format",
+    "db:format": "prisma format",
     "generate": "prisma generate",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "check": "biome check ./src",
+    "lint": "biome lint --apply ./src",
+    "format": "biome format --write ./src"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@repo/typescript-config": "*",
     "@types/node": "^22.5.0",
     "prisma": "^5.18.0",
