@@ -1,17 +1,15 @@
-### Build
-
-To build all apps and packages, run the following command:
+### SetUp
 
 ```
-cd my-turborepo
-pnpm build
+pnpm docker:db
+pnpm db:deploy
+pnpm generate
+pnpm dev
 ```
+
 
 ### Develop
 
-To develop all apps and packages, run the following command:
-
 ```
-cd my-turborepo
 pnpm dev
 ```
