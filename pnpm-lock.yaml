@@ -18,83 +18,6 @@ importers:
   apps/client:
     dependencies:
       '@repo/schema':
-        specifier: workspace:*
-        version: link:../../packages/schema
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
-      axios:
-        specifier: ^1.7.5
-        version: 1.7.5
-      next:
-        specifier: 14.2.6
-        version: 14.2.6(react-dom@18.3.1)(react@18.3.1)
-      react:
-        specifier: 18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: 18.3.1
-        version: 18.3.1(react@18.3.1)
-      swr:
-        specifier: ^2.2.5
-        version: 2.2.5(react@18.3.1)
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 1.8.3
-        version: 1.8.3
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^20
-        version: 20.16.1
-      '@types/react':
-        specifier: ^18
-        version: 18.3.4
-      '@types/react-dom':
-        specifier: ^18
-        version: 18.3.0
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
-
-  apps/server:
-    dependencies:
-      '@hono/node-server':
-        specifier: ^1.12.0
-        version: 1.12.2(hono@4.5.9)
-      '@repo/database':
-        specifier: workspace:*
-        version: link:../../packages/database
-      '@repo/schema':
-        specifier: workspace:*
-        version: link:../../packages/schema
-      hono:
-        specifier: ^4.5.9
-        version: 4.5.9
-    devDependencies:
-      '@biomejs/biome':
-        specifier: 1.8.3
-        version: 1.8.3
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^22.5.0
-        version: 22.5.0
-      nodemon:
-        specifier: ^3.1.4
-        version: 3.1.4
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.5.0)(typescript@5.5.4)
-      typescript:
-        specifier: ^5.5.4
-        version: 5.5.4
-
-  apps/web:
-    dependencies:
-      '@repo/schema':
         specifier: workspace:^
         version: link:../../packages/schema
       '@repo/ui':
@@ -143,6 +66,40 @@ importers:
       vite:
         specifier: ^5.4.1
         version: 5.4.2(@types/node@22.5.1)
+
+  apps/server:
+    dependencies:
+      '@hono/node-server':
+        specifier: ^1.12.0
+        version: 1.12.2(hono@4.5.9)
+      '@repo/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@repo/schema':
+        specifier: workspace:*
+        version: link:../../packages/schema
+      hono:
+        specifier: ^4.5.9
+        version: 4.5.9
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 1.8.3
+        version: 1.8.3
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^22.5.0
+        version: 22.5.0
+      nodemon:
+        specifier: ^3.1.4
+        version: 3.1.4
+      ts-node:
+        specifier: ^10.9.2
+        version: 10.9.2(@types/node@22.5.0)(typescript@5.5.4)
+      typescript:
+        specifier: ^5.5.4
+        version: 5.5.4
 
   packages/database:
     dependencies:
@@ -1029,7 +986,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.16.1
+      '@types/node': 22.5.1
     dev: true
 
   /@types/inquirer@6.5.0:
@@ -1081,7 +1038,7 @@ packages:
   /@types/through@0.0.33:
     resolution: {integrity: sha512-HsJ+z3QuETzP3cswwtzt2vEIiHBk/dCcHGhbmG5X3ecnwFD/lPrMpliGXxSCg03L9AhrdwA4Oz/qfspkDW+xGQ==}
     dependencies:
-      '@types/node': 20.16.1
+      '@types/node': 22.5.1
     dev: true
 
   /@types/tinycolor2@1.4.6:
