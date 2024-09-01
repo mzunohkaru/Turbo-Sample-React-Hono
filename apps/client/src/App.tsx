@@ -3,7 +3,7 @@
 import { useUser } from '@/hook/useUser'
 import { usePost } from '@/hook/usePost'
 
-function App() {
+export function App() {
   const { userData, fetchUser, isMutating, error, createUserData, createUser } =
     useUser()
   const handleFetchUser = () => {
@@ -22,8 +22,9 @@ function App() {
   return (
     <div>
       <main>
-        <button onClick={() => handleFetchUser()}>Fetch User</button>
-        <button onClick={() => handleCreateUser()}>Create User</button>
+        <h1 className="text-2xl font-bold text-center">Client</h1>
+        <button className="bg-blue-500 text-white p-2 rounded-md" onClick={() => handleFetchUser()}>Fetch User</button>
+        <button className="bg-green-500 text-white p-2 rounded-md" onClick={() => handleCreateUser()}>Create User</button>
         <div>
           <p>userData: {JSON.stringify(userData)}</p>
           <p>isMutating: {JSON.stringify(isMutating)}</p>
@@ -31,7 +32,7 @@ function App() {
         </div>
       </main>
       <footer>
-        <div>
+        <div className="bg-red-500 text-white p-2 rounded-md">
           <p>postData: {JSON.stringify(postData)}</p>
         </div>
       </footer>
