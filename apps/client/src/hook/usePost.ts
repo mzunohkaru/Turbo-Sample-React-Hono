@@ -21,7 +21,7 @@ export function usePost() {
     onSuccess: data => {
       console.log('success', data)
     },
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+    onErrorRetry: (error, _, __, ___, { retryCount }) => {
       if (retryCount > 1) return
       if (error instanceof AxiosError) {
         if (error.response?.status === 401) return

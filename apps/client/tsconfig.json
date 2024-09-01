@@ -1,16 +1,37 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
+    // ECMAScript Options
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+
+    // Output Options
+    "noEmit": false,
+
+    // File Processing Options
+    "declaration": false,
+    "sourceMap": false,
+    "declarationMap": false,
+
+    // Strict Type-Checking Options
+    "strict": true,
+
+    // Plugin Options
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // Module Resolution Options
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     }
   },
+
+  // Include specific files
   "include": [
     "next-env.d.ts",
     "next.config.mjs",
@@ -18,5 +39,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+
+  // Exclude specific files
+  "exclude": ["node_modules"],
+
+  // Additional files to include
+  "files": ["vite.config.ts"]
 }
