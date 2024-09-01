@@ -1,5 +1,4 @@
 import useSWRMutation from 'swr/mutation'
-import { AxiosError } from 'axios'
 
 import { getFetcher, postFetcher } from '@/lib/fetch'
 import type { UserResponse } from '@repo/schema'
@@ -40,7 +39,7 @@ export function useUser() {
     onSuccess: data => {
       console.log('success', data)
     },
-    onError(err, key, config) {
+    onError(err, _, __) {
       console.log('error', err)
     },
   })
@@ -52,7 +51,7 @@ export function useUser() {
       onSuccess: data => {
         console.log('success', data)
       },
-      onError(err, key, config) {
+      onError(err, _, __) {
         console.log('error', err)
       },
     },

@@ -1,12 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import { Button } from '@repo/ui/button'
-import styles from './page.module.css'
 import { useUser } from '@/hook/useUser'
 import { usePost } from '@/hook/usePost'
 
-export default function Home() {
+function App() {
   const { userData, fetchUser, isMutating, error, createUserData, createUser } =
     useUser()
   const handleFetchUser = () => {
@@ -23,8 +20,8 @@ export default function Home() {
   console.log('postData', postData)
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div>
+      <main>
         <button onClick={() => handleFetchUser()}>Fetch User</button>
         <button onClick={() => handleCreateUser()}>Create User</button>
         <div>
@@ -33,7 +30,7 @@ export default function Home() {
           <p>error: {JSON.stringify(error)}</p>
         </div>
       </main>
-      <footer className={styles.footer}>
+      <footer>
         <div>
           <p>postData: {JSON.stringify(postData)}</p>
         </div>
@@ -41,3 +38,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default App
