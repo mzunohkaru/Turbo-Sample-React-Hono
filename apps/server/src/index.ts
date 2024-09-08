@@ -4,8 +4,8 @@ import { logger } from "hono/logger";
 import { prettyJSON } from "hono/pretty-json";
 import { serve } from "@hono/node-server";
 
-import user from "./router/user";
-import post from "./router/post";
+import user from "@/router/user";
+import post from "@/router/post";
 
 const app = new Hono().basePath("/api");
 
