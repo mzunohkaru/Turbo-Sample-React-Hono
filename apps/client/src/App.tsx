@@ -1,12 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import { Button } from '@repo/ui/button'
-import styles from './page.module.css'
 import { useUser } from '@/hook/useUser'
 import { usePost } from '@/hook/usePost'
 
-export default function Home() {
+export function App() {
   const { userData, fetchUser, isMutating, error, createUserData, createUser } =
     useUser()
   const handleFetchUser = () => {
@@ -23,21 +20,24 @@ export default function Home() {
   console.log('postData', postData)
 
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <button onClick={() => handleFetchUser()}>Fetch User</button>
-        <button onClick={() => handleCreateUser()}>Create User</button>
+    <div>
+      <main>
+        <h1 className="text-2xl font-bold text-center">Client</h1>
+        <button className="bg-blue-500 text-white p-2 rounded-md" onClick={() => handleFetchUser()}>Fetch User</button>
+        <button className="bg-green-500 text-white p-2 rounded-md" onClick={() => handleCreateUser()}>Create User</button>
         <div>
           <p>userData: {JSON.stringify(userData)}</p>
           <p>isMutating: {JSON.stringify(isMutating)}</p>
           <p>error: {JSON.stringify(error)}</p>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <div>
+      <footer>
+        <div className="bg-red-500 text-white p-2 rounded-md">
           <p>postData: {JSON.stringify(postData)}</p>
         </div>
       </footer>
     </div>
   )
 }
+
+export default App

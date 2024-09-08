@@ -2,7 +2,8 @@ services:
   client:
     container_name: client
     build:
-      context: .
+      context: ./apps/client
+      dockerfile: Dockerfile
       args:
         - NODE_ENV=${NODE_ENV:-production}
       target: ${NODE_ENV:-production}
@@ -17,7 +18,8 @@ services:
   server:
     container_name: server
     build:
-      context: .
+      context: ./apps/server
+      dockerfile: Dockerfile
       args:
         - NODE_ENV=${NODE_ENV:-production}
       target: ${NODE_ENV:-production}
@@ -32,7 +34,7 @@ services:
     networks:
       - app_network
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:3000/api || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/api || exit 1"]
       interval: 1m30s
       timeout: 30s
       retries: 5
